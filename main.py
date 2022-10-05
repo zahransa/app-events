@@ -54,3 +54,13 @@ report.add_events(events=events, title='Events', sfreq=sfreq)
 
 # == SAVE REPORT ==
 report.save('out_dir_report/report.html', overwrite=True)
+
+event_dict = {'auditory/left': 1, 'auditory/right': 2, 'visual/left': 3,
+              'visual/right': 4, 'smiley': 5, 'buttonpress': 32}
+
+# == FIGURES ==
+plt.figure(1)
+fig = mne.viz.plot_events(events, sfreq=raw.info['sfreq'],
+                          first_samp=raw.first_samp, event_id=event_dict)
+fig.subplots_adjust(right=0.7)  # make room for legend
+fig.savefig(os.path.join('out_figs','events.png'))
