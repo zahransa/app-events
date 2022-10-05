@@ -4,6 +4,12 @@ import mne
 import json
 from mne_bids import BIDSPath, write_raw_bids
 import shutil
+import matplotlib.pyplot as plt
+
+#workaround for -- _tkinter.TclError: invalid command name ".!canvas"
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 with open('config.json') as config_json:
     config = json.load(config_json)
