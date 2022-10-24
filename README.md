@@ -8,7 +8,7 @@ Brainlife App to visualize, extract, rename and combine events using MNE-Python 
 # Documentation
 
 #### Input files are:
-    * `meg/fif` meg data file
+    * a MEG file in `.fif` format,
 #### Ouput files are:
     * `event.tsv` file, 
     * a plot of the events
