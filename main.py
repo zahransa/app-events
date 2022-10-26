@@ -2,6 +2,7 @@ import os
 import numpy as np
 import mne
 import json
+import helper
 from mne_bids import BIDSPath, write_raw_bids
 import shutil
 import matplotlib.pyplot as plt
