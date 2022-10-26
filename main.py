@@ -41,9 +41,9 @@ sfreq = raw.info['sfreq']
 
 
 
-# events = mne.pick_events(events, exclude=config['exclude'])
+events = mne.pick_events(events, exclude=config['exclude'])
 
-# events = mne.merge_events(events, ids=config['ids'], new_id=config['new_id'])
+events = mne.merge_events(events, ids=config['ids'], new_id=config['new_id'])
 
 
 event_id_condition= config['event_id_condition']
@@ -68,10 +68,6 @@ events_file = 'bids/sub-subject/meg/sub-subject_task-task_run-01_events.tsv'
 shutil.copy2(events_file, 'out_dir/events.tsv')
 
 
-report.add_events(events=events, title='Events', sfreq=sfreq)
-
-# == SAVE REPORT ==
-report.save('out_dir_report/report.html', overwrite=True)
 
 
 
