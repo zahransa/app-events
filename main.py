@@ -46,14 +46,26 @@ sfreq = raw.info['sfreq']
 # events = mne.merge_events(events, ids=config['ids'], new_id=config['new_id'])
 
 
+event_id_condition= config['event_id_condition']
+# Convert String to Dictionary using strip() and split() methods
+event_id = dict((x.strip(), int(y.strip()))
+                for x, y in (element.split('-')
+                             for element in event_id_condition.split(', ')))
+
+id_list = list(event_id.values())
+
+events = mne.pick_events(events, include=id_list)
+
+
+
 # # Write BIDS to create events.tsv BIDS compliant
-# write_raw_bids(raw, bids_path, events_data=events, event_id=dict_event_id, overwrite=True)
+write_raw_bids(raw, bids_path, events_data=events, event_id=dict_event_id, overwrite=True)
 #
 # # Extract events.tsv from bids path
-# events_file = 'bids/sub-subject/meg/sub-subject_task-task_run-01_events.tsv'
+events_file = 'bids/sub-subject/meg/sub-subject_task-task_run-01_events.tsv'
 #
 # # Copy events.tsv in outdir
-# shutil.copy2(events_file, 'out_dir_get_events/events.tsv')
+shutil.copy2(events_file, 'out_dir/events.tsv')
 
 
 report.add_events(events=events, title='Events', sfreq=sfreq)
@@ -61,12 +73,11 @@ report.add_events(events=events, title='Events', sfreq=sfreq)
 # == SAVE REPORT ==
 report.save('out_dir_report/report.html', overwrite=True)
 
-event_dict = {'auditory/left': 1, 'auditory/right': 2, 'visual/left': 3,
-              'visual/right': 4, 'smiley': 5, 'buttonpress': 32}
+
 
 # == FIGURES ==
 plt.figure(1)
 fig = mne.viz.plot_events(events, sfreq=raw.info['sfreq'],
-                          first_samp=raw.first_samp, event_id=event_dict)
+                          first_samp=raw.first_samp, event_id=event_id)
 fig.subplots_adjust(right=0.7)  # make room for legend
 fig.savefig(os.path.join('out_figs','events.png'))
