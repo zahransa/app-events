@@ -73,12 +73,7 @@ events_file = 'bids/sub-subject/meg/sub-subject_task-task_run-01_events.tsv'
 shutil.copy2(events_file, 'out_dir/events.tsv')
 
 
+report.add_events(events=events, title='Events', sfreq=sfreq)
 
-
-
-# == FIGURES ==
-plt.figure(1)
-fig = mne.viz.plot_events(events, sfreq=raw.info['sfreq'],
-                          first_samp=raw.first_samp, event_id=event_id)
-fig.subplots_adjust(right=0.7)  # make room for legend
-fig.savefig(os.path.join('out_figs','events.png'))
+# == SAVE REPORT ==
+report.save('out_dir_report/report.html', overwrite=True)
