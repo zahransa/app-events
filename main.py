@@ -44,7 +44,11 @@ sfreq = raw.info['sfreq']
 
 events = mne.pick_events(events, exclude=config['exclude'])
 
-events = mne.merge_events(events, ids=config['ids'], new_id=config['new_id'])
+str=config['ids']
+ids = [int(item) for item in str.split(',') if item.isdigit()]
+
+
+events = mne.merge_events(events, ids=ids, new_id=config['new_id'])
 
 
 event_id_condition= config['event_id_condition']
