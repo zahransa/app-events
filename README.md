@@ -3,15 +3,15 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.530-blue.svg)](https://doi.org/10.25663/brainlife.app.530)
 
-Brainlife App to visualize, extract, rename and combine events using MNE-Python Welch method [mne.pick_events](https://mne.tools/stable/generated/mne.pick_events.html), [mne.find_events](https://mne.tools/stable/generated/mne.find_events.html) and [mne.merge_events](https://mne.tools/stable/generated/mne.merge_events.html).
+Brainlife App to extract events using MNE-Python [mne.find_events](https://mne.tools/stable/generated/mne.find_events.html).
 
 # Documentation
 
 #### Input files are:
-    * a MEG file in `.fif` format,
+* a MEG file in `.fif` format,
 #### Ouput files are:
-    * `event.tsv` file, 
-    * a plot of the events
+* `event.tsv` file, 
+* a plot of the events
    
 
 ## Authors
