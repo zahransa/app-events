@@ -9,6 +9,14 @@ Brainlife App to extract events using MNE-Python [mne.find_events](https://mne.t
 
 #### Input files are:
 * a MEG file in `.fif` format,
+
+#### Input parameters are:
+* `stim_channel`: `None` | `str` | `list` of `str`, Name of the stim channel,
+* consecutive: `bool`, If True, consider instances where the value of the events channel changes without first returning to zero as multiple events. If False, report only instances where the value of the events channel changes from/to zero. If ‘increasing’, report adjacent events only when the second event code is greater than the first.
+* `mask_type`: The type of operation between the mask and the trigger.
+* `min_duration`: `float`
+The minimum duration of a change in the events channel required to consider it as an event (in seconds).
+
 #### Ouput files are:
 * `event.tsv` file, 
 * a plot of the events
