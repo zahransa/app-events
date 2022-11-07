@@ -1,7 +1,6 @@
 # Events
 
-[![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.530-blue.svg)](https://doi.org/10.25663/brainlife.app.530)
+
 
 Brainlife App to extract events using MNE-Python [mne.find_events](https://mne.tools/stable/generated/mne.find_events.html).
 
